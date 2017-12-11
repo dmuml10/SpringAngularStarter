@@ -5,15 +5,13 @@ import {RouterModule, Routes} from "@angular/router";
 // component
 import {ForgotPasswordComponent} from "./component/login/forgot-password.component";
 import {LoginComponent} from "./component/login/login.component";
-import {UsersComponent} from "./component/users/users.component";
-// util
-import {CanActivateAuthGuard} from "./util/can-activate.authguard";
+import {DummiesComponent} from "./component/dummy/dummy.component";
 
 const routes: Routes = [
-	{path: '', redirectTo: 'userGroups', pathMatch: 'full'},
+	{path: '', redirectTo: 'dummies', pathMatch: 'full'},
 	{path: 'forgotPassword', component: ForgotPasswordComponent},
 	{path: 'login', component: LoginComponent},
-	{path: 'users', component: UsersComponent, canActivate: [CanActivateAuthGuard]},
+	{path: 'dummies', component: DummiesComponent},
 ];
 
 @NgModule({
