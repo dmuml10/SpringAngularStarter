@@ -1,19 +1,16 @@
 package io.test.sas.server.dao.impl.general;
 
 import io.test.sas.common.entity.User;
-import io.test.sas.common.exception.AppException;
 import io.test.sas.common.filter.general.AbstractFilter;
 import io.test.sas.common.filter.general.UserFilter;
 import io.test.sas.common.utils.Utils;
 import io.test.sas.server.dao.interfaces.general.UserDao;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,24 +55,7 @@ public class UserDaoImpl implements UserDao {
             params.put("email", "%" + email.toUpperCase() + "%");
         }
 
-        List<String> names = filter.getNames();
-        if (!Utils.isBlank(names)) {
-            queryBuilder.append(" AND name IN(:names)");
-            params.put("names", names);
-        }
-
-        Long userGroupId = filter.getUserGroupId();
-        if (!Objects.isNull(userGroupId)) {
-            queryBuilder.append(" AND userGroup.id = :userGroupId");
-            params.put("userGroupId", userGroupId);
-        }
     }
-
-    protected String getOrderBy() {
-        return "username";
-    }
-
-//    misc
 
     @Override
     public Optional<User> getForAuthByUsername(String username) {
