@@ -4,7 +4,6 @@ import io.test.sas.common.entity.User;
 import io.test.sas.common.exception.AppException;
 import io.test.sas.common.filter.general.AbstractFilter;
 import io.test.sas.common.service.general.UserService;
-import io.test.sas.common.utils.Utils;
 import io.test.sas.server.dao.interfaces.general.PermissionDao;
 import io.test.sas.server.dao.interfaces.general.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class UserServiceImpl implements UserService {
             throw new AppException("USERNAME_EXISTS", username);
         }
 
-        String password = Utils.generateRandomPassword();
+        String password = "TEST";
         entity.setPassword(new BCryptPasswordEncoder().encode(password));
 
         User user = dao.update(entity);
