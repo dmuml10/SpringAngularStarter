@@ -8,9 +8,6 @@ import {AbstractComponent} from "./component/abstract-component";
 // util
 import {AuthenticationUtils} from "./util/authentication-utils";
 import {Utils} from "./util/utils";
-// primeng > service
-import {ConfirmationService} from "primeng/components/common/confirmationservice";
-import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
 	selector: 'app',
@@ -19,8 +16,8 @@ import {MessageService} from "primeng/components/common/messageservice";
 })
 export class AppComponent extends AbstractComponent {
 
-	public constructor(confirmationService: ConfirmationService, messageService: MessageService, private router: Router) {
-		super(confirmationService, messageService);
+	public constructor(private router: Router) {
+		super();
 	}
 
 	private isLoggedIn(): boolean {

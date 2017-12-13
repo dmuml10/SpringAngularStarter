@@ -5,8 +5,6 @@ import {Dummy} from "../../model/entity/dummy";
 // component
 import {AbstractComponent} from "../abstract-component";
 // service
-import {ConfirmationService} from "primeng/components/common/confirmationservice";
-import {MessageService} from "primeng/components/common/messageservice";
 import {DummyService} from "../../service/dummy.service";
 import {User} from "../../model/entity/user";
 
@@ -21,8 +19,8 @@ export class DummiesComponent extends AbstractComponent implements OnInit {
 
 	private user: User;
 
-	public constructor(private service: DummyService, confirmationService: ConfirmationService, messageService: MessageService) {
-		super(confirmationService, messageService);
+	public constructor(private service: DummyService) {
+		super();
 	}
 
 	public ngOnInit(): void {

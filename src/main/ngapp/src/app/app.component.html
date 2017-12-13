@@ -1,14 +1,9 @@
 <nav>
 	<ul *ngIf="isLoggedIn()">
 		<li><a routerLink="users" routerLinkActive="active">{{getMessage('USERS')}}</a></li>
-
 		<li>
-			<button pButton [label]="getMessage('LOGOUT')" icon="fa-sign-out" (click)="logout()"></button>
+			<button icon="fa-sign-out" (click)="logout()">{{getMessage('LOGOUT')}}</button>
 		</li>
 	</ul>
 </nav>
 <router-outlet></router-outlet>
-
-<p-growl></p-growl>
-
-<p-confirmDialog [acceptLabel]="getMessage('YES')" [rejectLabel]="getMessage('NO')"></p-confirmDialog>
